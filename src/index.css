@@ -1,0 +1,171 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Tech Futuristic Theme - Blue to Cyan */
+    --background: 220 25% 6%;
+    --foreground: 210 40% 98%;
+
+    --card: 220 20% 10%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 220 20% 10%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 195 100% 50%;
+    --primary-foreground: 220 25% 6%;
+
+    --secondary: 217 91% 60%;
+    --secondary-foreground: 220 25% 6%;
+
+    --muted: 220 15% 15%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 189 95% 52%;
+    --accent-foreground: 220 25% 6%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 20% 18%;
+    --input: 220 20% 18%;
+    --ring: 195 100% 50%;
+
+    --radius: 1rem;
+
+    /* Custom gradient and glow tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(217, 91%, 60%), hsl(189, 95%, 52%));
+    --gradient-secondary: linear-gradient(180deg, hsl(220, 25%, 6%), hsl(220, 20%, 10%));
+    --glow-primary: 0 0 40px hsl(195, 100%, 50% / 0.3);
+    --glow-secondary: 0 0 60px hsl(189, 95%, 52% / 0.2);
+    --shadow-elevated: 0 20px 60px -10px hsl(195, 100%, 50% / 0.25);
+    
+    /* Glass effect */
+    --glass-bg: hsl(220, 20%, 10% / 0.6);
+    --glass-border: hsl(195, 100%, 50% / 0.2);
+    
+    /* Transitions */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, hsl(var(--primary)), hsl(var(--accent)));
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, hsl(var(--accent)), hsl(var(--primary)));
+  }
+}
+
+@layer utilities {
+  /* Glassmorphism */
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Glow effects */
+  .glow-primary {
+    box-shadow: var(--glow-primary);
+  }
+
+  .glow-secondary {
+    box-shadow: var(--glow-secondary);
+  }
+
+  /* Animated gradient background */
+  .animated-gradient {
+    background: linear-gradient(270deg, hsl(217, 91%, 60%), hsl(189, 95%, 52%), hsl(217, 91%, 60%));
+    background-size: 400% 400%;
+    animation: gradient-shift 8s ease infinite;
+  }
+
+  @keyframes gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  /* Floating animation */
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  /* Smooth transitions */
+  .smooth-transition {
+    transition: var(--transition-smooth);
+  }
+
+  .bounce-transition {
+    transition: var(--transition-bounce);
+  }
+
+  /* 3D perspective for cards */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  /* Hover lift effect */
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Stagger animation utility */
+  .stagger-delay-1 { animation-delay: 0.1s; }
+  .stagger-delay-2 { animation-delay: 0.2s; }
+  .stagger-delay-3 { animation-delay: 0.3s; }
+  .stagger-delay-4 { animation-delay: 0.4s; }
+  .stagger-delay-5 { animation-delay: 0.5s; }
+}
