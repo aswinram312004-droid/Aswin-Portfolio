@@ -1,73 +1,89 @@
-# Welcome to your Lovable project
+# 🚀 Aswin Portfolio – Modern Animated Personal Website
 
-## Project info
+A fully responsive, highly animated, business-focused portfolio website built with  
+**React, TypeScript, Vite, Tailwind CSS, shadcn-ui, Framer Motion, Supabase & Resend.**
 
-**URL**: https://lovable.dev/projects/edeb539e-b951-4144-9e3a-6542db75bf35
+This portfolio is designed to:
 
-## How can I edit this code?
+- Showcase my **skills, projects, and experience**
+- Provide a **smooth, modern, animated user experience**
+- Allow visitors to **contact me directly** via a working email form
 
-There are several ways of editing your application.
+---
 
-**Use Lovable**
+## ✨ Highlights
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/edeb539e-b951-4144-9e3a-6542db75bf35) and start prompting.
+- 🎨 **Modern UI** – Clean, minimal, and professional design  
+- 📱 **Fully Responsive** – Works perfectly on mobile, tablet, and desktop  
+- 🎬 **Smooth Animations** – Framer Motion used for sections, buttons, cards & background elements  
+- 🧠 **Data Vibes** – Floating data & analytics themed icons in the hero section  
+- 📩 **Functional Contact Form** – Sends emails directly to my inbox using Supabase Edge Functions + Resend  
+- ⚡ **Fast & Optimized** – Powered by Vite and TypeScript
 
-Changes made via Lovable will be committed automatically to this repo.
+---
 
-**Use your preferred IDE**
+## 🛠️ Tech Stack
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+**Frontend**
+- ⚛️ React
+- 🧩 TypeScript
+- ⚡ Vite
+- 🎨 Tailwind CSS
+- 🧱 shadcn-ui
+- 🎥 Framer Motion
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+**Backend / Services**
+- 🗄️ Supabase (Edge Function)
+- ✉️ Resend (Email delivery)
 
-Follow these steps:
+---
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## 🧱 Main Features in Detail
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### 🎯 Hero Section
+- Animated headline and subtext  
+- Smooth, looping background animation  
+- Floating **data / analytics icons** with subtle motion (always moving)  
+- Call-to-action buttons (e.g., View Projects, Download Resume)
 
-# Step 3: Install the necessary dependencies.
-npm i
+### 📚 Sections
+- About  
+- Skills  
+- Projects  
+- Experience  
+- Contact  
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+Each section uses scroll-based animations and smooth transitions.
 
-**Edit a file directly in GitHub**
+### ✉️ Contact Form (With Email Backend)
+- Fields: **Name, Email, Subject, Message**
+- Validation for required fields and email format
+- On submit:
+  - Data is sent to a **Supabase Edge Function**
+  - Edge Function uses **Resend** to send an email to my inbox
+- Shows:
+  - ✅ Success toast/message when sent  
+  - ❌ Error toast/message if something fails  
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+---
 
-**Use GitHub Codespaces**
+## 📂 Project Structure
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/edeb539e-b951-4144-9e3a-6542db75bf35) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+```bash
+.
+├── src
+│   ├── components      # Reusable UI components
+│   ├── pages           # Main pages (Home, NotFound, etc.)
+│   ├── lib             # Utility functions (helpers)
+│   ├── main.tsx        # App entry point
+│   └── styles          # Global styles (if any)
+├── supabase
+│   ├── config.toml
+│   └── functions
+│       └── send-contact-email
+│           └── index.ts # Edge function for sending emails
+├── public              # Static assets (icons, images)
+├── tailwind.config.ts
+├── tsconfig.json
+├── vite.config.ts
+└── README.md
